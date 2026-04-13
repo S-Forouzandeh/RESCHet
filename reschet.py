@@ -1,6 +1,5 @@
 """
-RESCHet: Recommendation Based on Embedding Spectral Clustering
-in Heterogeneous Networks
+A new method for recommendation based on embedding spectral clustering in heterogeneous networks (RESCHet)
 
 Reference:
 
