@@ -3,10 +3,16 @@ RESCHet: Recommendation Based on Embedding Spectral Clustering
 in Heterogeneous Networks
 
 Reference:
-    Forouzandeh, S., Berahmand, K., Sheikhpour, R., & Li, Y. (2023).
-    A new method for recommendation based on embedding spectral clustering
-    in heterogeneous networks (RESCHet).
-    Expert Systems with Applications, 231, 120699.
+
+    @article{forouzandeh2023new,
+      title={A new method for recommendation based on embedding spectral clustering in heterogeneous networks (RESCHet)},
+      author={Forouzandeh, Saman and Berahmand, Kamal and Sheikhpour, Razieh and Li, Yuefeng},
+      journal={Expert Systems with Applications},
+      volume={231},
+      pages={120699},
+      year={2023},
+      publisher={Elsevier}
+    }
     https://doi.org/10.1016/j.eswa.2023.120699
 
 Dataset / original repo: https://github.com/S-Forouzandeh/RESCHet
