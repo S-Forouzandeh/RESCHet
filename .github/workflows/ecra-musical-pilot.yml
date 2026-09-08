@@ -5,6 +5,11 @@ on:
     paths:
       - 'ecra_runs/**'
       - '.github/workflows/ecra-musical-pilot.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'ecra_runs/**'
+      - '.github/workflows/ecra-musical-pilot.yml'
   workflow_dispatch:
 
 jobs:
