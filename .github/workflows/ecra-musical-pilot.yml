@@ -1,0 +1,30 @@
+name: ECRA Musical Pilot
+on:
+  push:
+    branches: [ecra-ablation-run-20260908]
+    paths:
+      - 'ecra_runs/**'
+      - '.github/workflows/ecra-musical-pilot.yml'
+  workflow_dispatch:
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecra-ablation-run-20260908
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - name: Run pilot
+        working-directory: ecra_runs
+        run: python pilot.py
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: ecra-musical-pilot-results
+          path: ecra_runs/pilot_results.json
