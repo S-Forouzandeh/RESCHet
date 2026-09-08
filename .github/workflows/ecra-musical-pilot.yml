@@ -15,7 +15,7 @@ on:
 jobs:
   pilot:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,11 +23,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Probe mirror
+      - name: Install
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install datasets matplotlib numpy
+      - name: Run measured sensitivity
         working-directory: ecra_runs
         run: python pilot.py
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
-          name: ecra-hf-probe
-          path: ecra_runs/hf_probe.json
+          name: ecra-measured-8x8
+          path: |
+            ecra_runs/measured_K_eta_8x8.png
+            ecra_runs/measured_K_eta_8x8.json
+            ecra_runs/measured_K_eta_8x8.npz
