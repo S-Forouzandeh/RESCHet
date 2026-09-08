@@ -15,7 +15,7 @@ on:
 jobs:
   pilot:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,12 +24,12 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install
-        run: pip install torch --index-url https://download.pytorch.org/whl/cpu
-      - name: Run pilot
+        run: pip install huggingface_hub
+      - name: Probe mirror
         working-directory: ecra_runs
         run: python pilot.py
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
-          name: ecra-musical-pilot-results
-          path: ecra_runs/pilot_results.json
+          name: ecra-hf-probe
+          path: ecra_runs/hf_probe.json
